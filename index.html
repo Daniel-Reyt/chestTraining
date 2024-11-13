@@ -117,13 +117,13 @@
             code_index = 0;
         }
         function playAudio(sound) {
-            var audio = new Audio(`./${sound}.wav`);
+            var audio = new Audio(`./${sound}.mp3`);
             if (sound == "good") {
-                audio.playbackRate = 1.5;
-                audio.volume = 0.2;
+                audio.playbackRate = 1;
+                audio.volume = 0.5;
             } else {
-                audio.playbackRate = 2;
-                audio.volume = 0.2;
+                audio.playbackRate = 1;
+                audio.volume = 0.5;
             }
             audio.play();
         }
