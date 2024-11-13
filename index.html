@@ -13,6 +13,7 @@
         let numbers = []
         let rot_index = 0
         let code_index = 0
+        let timing = 15
 
         let codes = []
         let remake_code = []
@@ -22,7 +23,7 @@
         window.addEventListener('keyup', (ev) => {
             if (first_click) {
                 first_click = false
-                StartTimer(30)
+                StartTimer(timing)
             }
             switch (ev.key) {
                 case 'd':
@@ -72,13 +73,13 @@
                             document.getElementById('code').style.transform = `rotate(0deg)`
                             setTimeout(() => {
                                 generateCode()
-                            }, 10 * 1000)
+                            }, 5 * 1000)
                         }
                     } else {
                         document.getElementById('moved').innerText = "Perdu"
                         setTimeout(() => {
                             generateCode()
-                        }, 10 * 1000)
+                        }, 5 * 1000)
                         rot_index = 0
                         document.getElementById('code').style.transform = `rotate(0deg)`
                     }
@@ -97,7 +98,7 @@
             }
             generateCode()
         })
-        let possibilities = [3, 4]
+        let possibilities = [/*3,*/ 4]
         function generateCode() {
             document.getElementById('moved').innerText = ""
             codes = []
@@ -119,8 +120,10 @@
             var audio = new Audio(`./${sound}.wav`);
             if (sound == "good") {
                 audio.playbackRate = 1.5;
+                audio.volume = 0.2;
             } else {
                 audio.playbackRate = 2;
+                audio.volume = 0.2;
             }
             audio.play();
         }
@@ -132,7 +135,7 @@
                 clearTimeout(timer)
                 setTimeout(() => {
                     generateCode()
-                }, 10 * 1000)
+                }, 5 * 1000)
             }, time * 1000);
         }
     </script>
