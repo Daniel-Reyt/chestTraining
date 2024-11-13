@@ -13,7 +13,7 @@
         let numbers = []
         let rot_index = 0
         let code_index = 0
-        let timing = 15
+        let timing = 60
 
         let codes = []
         let remake_code = []
@@ -27,7 +27,7 @@
             }
             switch (ev.key) {
                 case 'd':
-                    if (rot_index >= 0 && rot_index < 19) {
+                    if (rot_index >= 0 && rot_index < rotations.length - 1) {
                         rot_index += 1;
                         document.getElementById('code').style.transform = `rotate(-${rotations[rot_index]}deg)`
                         if (numbers[rot_index] == codes[code_index]) {
@@ -47,7 +47,7 @@
                     break;
                 case 'q':
                     if (rot_index == 0) {
-                        rot_index = 19;
+                        rot_index = rotations.length - 1;
                         document.getElementById('code').style.transform = `rotate(-${rotations[rot_index]}deg)`
                         if (numbers[rot_index] == codes[code_index]) {
                             playAudio('good')
@@ -91,7 +91,7 @@
             rotations = []
             numbers = []
             index = 0
-            for (let i = 0; i <= 100; i = i + 5) {
+            for (let i = 0; i <= 100; i = i + 2) {
                 numbers.push(i)
                 let rotation = 360 / 100
                 rotations.push(i * rotation)
